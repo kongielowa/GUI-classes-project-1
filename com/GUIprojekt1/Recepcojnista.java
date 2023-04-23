@@ -49,11 +49,17 @@ public class Recepcojnista extends Pracownik implements IDobryPracownik {
     }
 
     public void uprzejmy() {
+        System.out.println("Recepcjonista jest uprzejmy");
     }
 
+    @Override
     public void zdyscyplinowany() {
+        System.out.println("Recepcjonista jest zdyscyplinowany");
     }
 
+    @Override
     public void punktualny() {
+        System.out.println("Recepcjonista jest punktualny");
     }
 }
+
