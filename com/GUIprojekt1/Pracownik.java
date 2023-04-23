@@ -72,7 +72,7 @@ public abstract class Pracownik implements Comparable<Pracownik> {
         return login;
     }
 
-    public void setLogin() {
+    public void setLogin(String login) {
         this.login = login;
     }
 
