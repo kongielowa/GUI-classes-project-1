@@ -27,6 +27,13 @@ public class Praca implements Runnable {
         return praca;
     }
 
+    // Powyższa metoda pobiera mapę wszystkieZadania oraz ID zadania, które chcemy pobrać. Następnie sprawdza,
+    // czy istnieje zadanie o podanym ID oraz czy jest zatwierdzone.
+    // Jeśli nie, rzuca wyjątek z odpowiednią informacją. Jeśli zadanie istnieje i jest zatwierdzone,
+    // tworzy nowy obiekt klasy Praca z opisem pobranym z zadania oraz zespołem pobranym z zadania.
+    // Następnie dodaje to zadanie do listy zadań zadania w tym obiekcie klasy Praca. Na końcu zwraca ten obiekt.
+
+
     public void dodajZadanie(int id, Zadanie zadanie) {
         zadania.put(id, zadanie);
     }

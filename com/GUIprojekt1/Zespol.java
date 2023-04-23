@@ -61,5 +61,4 @@ public class Zespol {
         this.zadania = zadania;
     }
 
-
 }

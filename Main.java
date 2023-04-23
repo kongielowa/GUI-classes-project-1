@@ -6,9 +6,16 @@ import com.GUIprojekt1.Zespol;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Scanner;
 
 public class Main {
+    private static int idZadania;
+
     public static void main(String [] args) {
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Podaj ID zadania");
+        idZadania = scanner.nextInt();
 
         //tworzę obiekt DzialPracownikow
         DzialPracownikow dzial = new DzialPracownikow("IT");
@@ -18,6 +25,9 @@ public class Main {
 
         //tworzę obiekt Zespol
         Zespol zespol = new Zespol("Zespol programistów", manager);
+
+        //pobranie zadani o wskazanym id
+        Zadanie zadanie = zespol.pobierzPrace(idZadania);
 
         //tworzę obiekt Zadanie
         Zadanie zadanie = new Zadanie("Zadanie pierwsze", "Przetestuj program Lidii :) ", Stan.UTWORZONE, LocalDateTime.now());
