@@ -1,6 +1,7 @@
 package com.GUIprojekt1;
 
 import java.time.LocalDateTime;
+import com.GUIprojekt1.Manager;
 
 public class Zadanie extends Thread {
     private String nazwa;
@@ -10,6 +11,7 @@ public class Zadanie extends Thread {
     private LocalDateTime dataZakonczenia;
     private int czasWykonania;
     private Zespol zespol;
+    private Manager manager;
 
     public Zadanie(String nazwa, String opis, Stan stan, LocalDateTime now) {
         this.nazwa = nazwa;
@@ -77,6 +79,13 @@ public class Zadanie extends Thread {
 
     public void setStan(Stan stan) {
         this.stan = stan;
+    }
+
+    public void setManager(Manager manager) {
+        if (this.manager != null) {
+            this.manager.usunZadanie(this);
+        }
+
     }
 
 

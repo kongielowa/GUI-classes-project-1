@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Manager extends Recepcojnista implements IDobryPracownik {
+public class Manager extends Recepcjonista implements IDobryPracownik {
     private List<Zespol> zespoly;
     private List<Zadanie> zadania;
 
@@ -22,6 +22,18 @@ public class Manager extends Recepcojnista implements IDobryPracownik {
         return zadania;
     }
 
+    public List<Zadanie> getZadaniaForManagera() {
+        List<Zadanie> result = new ArrayList<>();
+        for (Zespol zespol : zespoly) {
+            for (Zadanie zadanie : zespol.getZadania()) {
+                if (zadanie.getManager() == this) {
+                    result.add(zadanie);
+                }
+            }
+        }
+        return result;
+    }
+
     public void addZespol(Zespol zespol) {
         zespoly.add(zespol);
     }
@@ -32,11 +44,37 @@ public class Manager extends Recepcojnista implements IDobryPracownik {
 
     public void addZadanie(Zadanie zadanie) {
         zadania.add(zadanie);
+        zadanie.setManager(this);
     }
 
-    public void removeZadanie(Zadanie zadanie) {
-        zadania.remove(zadanie);
+    public void usunZadanie(Zadanie zadanie) {
+        if (zadanie.getManager() == this) {
+            zadania.remove(zadanie);
+            zadanie.setManager(null);
+        }
     }
+
+
+    public List<Zadanie> getZadaniaDlaZespolu(Zespol zespol) {
+        List<Zadanie> result = new ArrayList<>();
+        for (Zadanie zadanie : zadania) {
+            if (zadanie.getZespol() == zespol) {
+                result.add(zadanie);
+            }
+        }
+        return result;
+    }
+
+    public List<Zespol> getZespolDlaZadania(Zadanie zadanie) {
+        List<Zespol> result = new ArrayList<>();
+        for (Zespol zespol : zespoly) {
+            if (zespol.getZadania().contains(zadanie)) {
+                result.add(zespol);
+            }
+        }
+        return result;
+    }
+
     public void uprzejmy() {
     }
 

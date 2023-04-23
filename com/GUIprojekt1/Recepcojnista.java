@@ -2,12 +2,12 @@ package com.GUIprojekt1;
 
 import java.time.LocalDate;
 
-public class Recepcojnista extends Pracownik implements IDobryPracownik {
+public class Recepcjonista extends Pracownik implements IDobryPracownik {
     private String login;
     private String haslo;
     private String initial;
 
-    public Recepcojnista(String imie, String nazwisko, LocalDate dataUrodzenia, DzialPracownikow dzial, String login, String haslo) {
+    public Recepcjonista(String imie, String nazwisko, LocalDate dataUrodzenia, DzialPracownikow dzial, String login, String haslo) {
         super(imie, nazwisko, dataUrodzenia, dzial);
         this.login = login;
         this.haslo = haslo;
