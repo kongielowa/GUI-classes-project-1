@@ -11,13 +11,9 @@ public class DzialPracownikow {
     private Map<Pracownik, List<Zadanie>> zadaniaPracownikow = new HashMap<>();
     private List<Pracownik> pracownicy = new ArrayList<>();
 
+
     public DzialPracownikow(String nazwa) {
         this.nazwa = nazwa;
-    }
-
-    public String getNazwa() {
-
-        return nazwa;
     }
 
     public void setNazwa(String nazwa) {
@@ -25,18 +21,28 @@ public class DzialPracownikow {
         this.nazwa = nazwa;
     }
 
-    public static void dodajDzial (DzialPracownikow dzial) throws NotUniqueNameException {
+    public static DzialPracownikow createDzial(String nazwa) throws NotUniqueNameException {
+        for (DzialPracownikow d : listaDzialow) {
+            if (d.getNazwa().equals(nazwa)) {
+            }
+            throw new NotUniqueNameException("Nazwa już istnieje, wybierz inną.");
+        }
 
-             for (DzialPracownikow d : listaDzialow) {
-                 if (d.getNazwa().equals(dzial.getNazwa())) {
-                     throw new NotUniqueNameException("Nazwa działu już istnieje: " + d.getNazwa());
-                 }
-             }
-             listaDzialow.add(dzial);
+        DzialPracownikow nowyDzial = new DzialPracownikow(nazwa);
+        listaDzialow.add(nowyDzial);
+        return nowyDzial;
     }
 
     public static void usunDzial(DzialPracownikow dzial) {
         listaDzialow.remove(dzial);
+    }
+
+    public String getNazwa() {
+        return nazwa;
+    }
+
+    public String setNazwa() {
+        return nazwa;
     }
 
     public void dodajPracownika(Pracownik pracownik) {
@@ -58,7 +64,19 @@ public class DzialPracownikow {
         zadaniaPracownikow.get(pracownik).add(zadanie);
     }
 
-    public Map<Pracownik,List<Zadanie>> getZadaniaPracownikow() {
+    public Map<Pracownik, List<Zadanie>> getZadaniaPracownikow() {
         return zadaniaPracownikow;
+    }
+
+    public String uzyskajInformacjeOPracownikach() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Pracownicy działu ").append(nazwa).append(": ");
+        for (Pracownik pracownik : pracownicy) {
+            sb.append(pracownik.getImie()).append(" ").append(pracownik.getNazwisko()).append(", ");
+        }
+        if (!pracownicy.isEmpty()) {
+            sb.delete(sb.length() - 2, sb.length()); // usunięcie ostatniego przecinka i spacji
+        }
+        return sb.toString();
     }
 }

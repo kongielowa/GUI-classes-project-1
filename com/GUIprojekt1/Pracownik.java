@@ -10,7 +10,6 @@ public abstract class Pracownik implements Comparable<Pracownik> {
     private LocalDate dataUrodzenia;
     private DzialPracownikow dzial;
     private boolean czyZdrowy = true;
-    private int porownanie;
     private String specjalizacja;
     private String login;
     private String haslo;
@@ -22,7 +21,6 @@ public abstract class Pracownik implements Comparable<Pracownik> {
         this.nazwisko = nazwisko;
         this.dataUrodzenia = dataUrodzenia;
         this.dzial = dzial;
-        this.porownanie = porownanie;
         listaPracownikow.add(this);
     }
 
@@ -62,14 +60,6 @@ public abstract class Pracownik implements Comparable<Pracownik> {
         return listaPracownikow;
     }
 
-    public int getPorownanie() {
-        return porownanie;
-    }
-
-    public void setPorownanie(int porownanie) {
-        this.porownanie = porownanie;
-    }
-
     public String getSpecjalizacja() {
         return specjalizacja;
     }
@@ -95,7 +85,10 @@ public abstract class Pracownik implements Comparable<Pracownik> {
     }
 
     public int compareTo(Pracownik other) {
-        return Integer.compare(this.porownanie, other.porownanie);
+        int compare = this.dataUrodzenia.compareTo(other.dataUrodzenia);
+        if (compare == 0) {
+            compare = this.nazwisko.compareTo(other.nazwisko);
+        }
+        return compare;
     }
-
 }
