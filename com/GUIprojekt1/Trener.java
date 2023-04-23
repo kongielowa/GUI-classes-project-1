@@ -17,14 +17,21 @@ public class Trener extends Pracownik implements IDobryPracownik {
     public void setSpecjalizacja(String specjalizacja) {
         this.specjalizacja = specjalizacja;
     }
-
     public void uprzejmy() {
+        System.out.println("Trener jest uprzejmy");
     }
 
     public void zdyscyplinowany() {
+        System.out.println("Trener jest zdyscyplinowany");
     }
 
     public void punktualny() {
+        System.out.println("Trener jest punktualny");
     }
-
 }
+
+
+
+
+
+
