@@ -26,7 +26,7 @@ public class Manager extends Recepcjonista implements IDobryPracownik {
         List<Zadanie> result = new ArrayList<>();
         for (Zespol zespol : zespoly) {
             for (Zadanie zadanie : zespol.getZadania()) {
-                if (zadanie.getManager() == this) {
+                if (zadanie.getZespol().getManager() == this) {
                     result.add(zadanie);
                 }
             }
@@ -48,7 +48,7 @@ public class Manager extends Recepcjonista implements IDobryPracownik {
     }
 
     public void usunZadanie(Zadanie zadanie) {
-        if (zadanie.getManager() == this) {
+        if (zadanie.getZespol().getManager() == this) {
             zadania.remove(zadanie);
             zadanie.setManager(null);
         }

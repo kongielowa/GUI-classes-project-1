@@ -26,8 +26,6 @@ public class Main {
         //tworzę obiekt Zespol
         Zespol zespol = new Zespol("Zespol programistów", manager);
 
-        //pobranie zadani o wskazanym id
-        Zadanie zadanie = zespol.pobierzPrace(idZadania);
 
         //tworzę obiekt Zadanie
         Zadanie zadanie = new Zadanie("Zadanie pierwsze", "Przetestuj program Lidii :) ", Stan.UTWORZONE, LocalDateTime.now());
