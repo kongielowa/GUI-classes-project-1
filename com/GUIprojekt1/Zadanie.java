@@ -53,7 +53,6 @@ public class Zadanie extends Thread {
     }
 
     private boolean czyPracownicySaChorzy() {
-        // Tutaj można dodać kod sprawdzający, czy co najmniej jeden pracownik jest chory
         return false;
     }
 
